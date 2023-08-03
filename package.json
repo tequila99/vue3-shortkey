@@ -1,0 +1,35 @@
+{
+  "name": "@tequila/vue3-shortkey",
+  "version": "1.0.0",
+  "description": "A plugin for VueJS 3.x accepts shortcuts globaly and in a single listener.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "precommit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tequila99/vue3-shortkey.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue-shortkey",
+    "vue3-shortkey",
+    "shortkey",
+    "shortcut"
+  ],
+  "author": "Ivan Milovanov <tequila00@yandex.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tequila99/vue3-shortkey/issues"
+  },
+  "homepage": "https://github.com/tequila99/vue3-shortkey#readme",
+  "dependencies": {
+    "standard": "^17.1.0"
+  }
+}
