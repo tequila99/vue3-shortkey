@@ -76,9 +76,10 @@ export default {
     document.addEventListener('keydown', pKey => {
       const decodedKey = decodeKey(pKey)
       if (!availableElement(decodedKey)) return
+      const items = mapElements.get(decodedKey)
+      if (!items) return
       pKey.preventDefault()
       pKey.stopPropagation()
-      const items = mapElements.get(decodedKey)
       const item = items.at(-1)
       if (!item.focus) {
         if ((!item.once && !item.push) || (item.push && !keyPressed)) dispatchShortkeyEvent(items)
@@ -91,11 +92,12 @@ export default {
 
     document.addEventListener('keyup', pKey => {
       const decodedKey = decodeKey(pKey)
-      keyPressed = false
       if (!availableElement(decodedKey)) return
+      const items = mapElements.get(decodedKey)
+      if (!items) return
+      keyPressed = false
       pKey.preventDefault()
       pKey.stopPropagation()
-      const items = mapElements.get(decodedKey)
       const item = items.at(-1)
       if ((item.once && !item.dispatched) || item.push) dispatchShortkeyEvent(items)
     }, true)
