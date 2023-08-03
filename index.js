@@ -23,7 +23,7 @@ const dispatchShortkeyEvent = items => {
   }
 }
 
-const bindValue = (el, binding, vNode) => {
+const bindValue = (el, binding) => {
   const {
     push = false,
     focus = false,
@@ -42,7 +42,7 @@ const bindValue = (el, binding, vNode) => {
       focus,
       propagate,
       dispatched: false,
-      el: vNode.el
+      el
     })
     mapElements.set(k, item)
   }
@@ -101,12 +101,12 @@ export default {
     }, true)
 
     Vue.directive('shortkey', {
-      beforeMount: (el, binding, vNode) => {
-        bindValue(el, binding, vNode)
+      beforeMount: (el, binding) => {
+        bindValue(el, binding)
       },
-      updated: (el, binding, vNode) => {
+      updated: (el, binding) => {
         unbindValue(el, binding)
-        bindValue(el, binding, vNode)
+        bindValue(el, binding)
       },
       unmounted: (el, binding) => {
         unbindValue(el, binding)
