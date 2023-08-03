@@ -29,7 +29,7 @@
     "url": "https://github.com/tequila99/vue3-shortkey/issues"
   },
   "homepage": "https://github.com/tequila99/vue3-shortkey#readme",
-  "dependencies": {
+  "devDependencies": {
     "standard": "^17.1.0"
   }
 }
