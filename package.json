@@ -1,5 +1,5 @@
 {
-  "name": "@tequila/vue3-shortkey",
+  "name": "@tequila99/vue3-shortkey",
   "version": "1.0.0",
   "description": "A plugin for VueJS 3.x accepts shortcuts globaly and in a single listener.",
   "main": "index.js",
