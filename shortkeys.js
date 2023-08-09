@@ -85,6 +85,8 @@ const shortkeys = {
   Quote: '\''
 }
 
+const allowedValues = Object.values(shortkeys)
+
 const createShortcutIndex = pKey => {
   let k = ''
   if (pKey.key === 'Alt' || pKey.altKey) k += 'alt'
@@ -96,15 +98,18 @@ const createShortcutIndex = pKey => {
 
 export const decodeKey = pKey => createShortcutIndex(pKey)
 
-export const encodeKey = pKey => {
-  pKey = pKey.map(el => el.toLowerCase()).sort()
+export const encodeKey = (pKey = []) => {
+  pKey = pKey.map(el => el.toLowerCase())
   const shortKey = {}
   shortKey.shiftKey = pKey.includes('shift')
   shortKey.ctrlKey = pKey.includes('ctrl')
   shortKey.metaKey = pKey.includes('meta')
   shortKey.altKey = pKey.includes('alt')
   let indexedKeys = createShortcutIndex(shortKey)
-  indexedKeys += pKey.filter(item => !['shift', 'ctrl', 'meta', 'alt'].includes(item)).join('')
+  pKey = pKey.filter(el => !['shift', 'ctrl', 'meta', 'alt'].includes(el))
+  if (pKey.some(el => !allowedValues.includes(el))) throw new Error('Список клавиш содержит недопустимые токены')
+
+  indexedKeys += (pKey[0] || '')
 
   return indexedKeys
 }

@@ -6,10 +6,11 @@
   "scripts": {
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run --dom --silent"
   },
   "precommit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "repository": {
     "type": "git",
@@ -30,6 +31,9 @@
   },
   "homepage": "https://github.com/tequila99/vue3-shortkey#readme",
   "devDependencies": {
-    "standard": "^17.1.0"
+    "happy-dom": "^10.9.0",
+    "standard": "^17.1.0",
+    "vitest": "^0.34.1",
+    "vue": "^3.3.4"
   }
 }
