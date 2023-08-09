@@ -1,6 +1,6 @@
 {
   "name": "@tequila99/vue3-shortkey",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A plugin for VueJS 3.x accepts shortcuts globally and in a single listener.",
   "main": "index.js",
   "scripts": {
